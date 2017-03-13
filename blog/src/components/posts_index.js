@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPosts } from '../actions/index';
+import { fetchPosts, fetchFirebase } from '../actions/index';
 import { Link } from 'react-router';
 
 class PostsIndex extends Component {
   componentWillMount() {
     this.props.fetchPosts();
+      // this.props.fetchFirebase();
   }
 
   renderPosts() {
@@ -42,4 +43,4 @@ function mapStateToProps(state) {
   return { posts: state.posts.all };
 }
 
-export default connect(mapStateToProps, { fetchPosts })(PostsIndex);
+export default connect(mapStateToProps, { fetchPosts ,fetchFirebase})(PostsIndex);
