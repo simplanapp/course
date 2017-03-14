@@ -7,6 +7,7 @@ export const DELETE_POST = 'DELETE_POST';
 export const FETCH_FIREBASE = 'FETCH_FIREBASE';
 export const SEARCH_CURSES = 'SEARCH_CURSES';
 export const SEARCH_CURSES_SUB='SEARCH_CURSES_SUB';
+export const SORT_CURSES = 'SORT_CURSES';
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const HEROKU_URL='https://blooming-savannah-34852.herokuapp.com'
 const API_KEY = '?key=lkajdsfapipwietpw';
@@ -41,6 +42,15 @@ export function searchCurses(props) {
   return {
     type: SEARCH_CURSES,
     payload: request
+  };
+}
+export function sortCurses(props) {
+   console.log('sssssseeeeeeeettttttttcccccoooooo' ,props);
+  //  console.log("555555555555");
+  //  console.log(props);
+  return {
+    type: SORT_CURSES,
+    payload: props
   };
 }
 export function searchCursesSub(props) {

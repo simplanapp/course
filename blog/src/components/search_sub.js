@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import {reduxForm} from 'redux-form';
 import {searchCursesSub} from '../actions/index';
-import CurseItem from './curse_item'
-
+import CurseItem from './curse_item';
+import SortButton from './sort_button';
 class SearchSUB extends Component{
 onSubmit(props) {
     this.props.searchCursesSub(props)
@@ -11,7 +11,7 @@ onSubmit(props) {
   }
 
   render() {
-    //console.log(this.props);
+    console.log(this.props);
 
     const { fields: { title }, handleSubmit } = this.props;
     //  console.log(title);
@@ -23,7 +23,7 @@ onSubmit(props) {
 
                 <input  type="text" className="form-control" {...title} style={{width:'50%', display:'inline', margin:2}}/>
                 <button type="submit" className="btn btn-primary" style={{marginLeft: 10, lineHeight:1}}>search</button>
-
+                <SortButton />
 
           <div className="text-help">
             {title.touched ? title.error : ''}

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost, deletePost, fetchFirebase } from '../actions/index';
+import { fetchPost, deletePost, fetchFirebase, sortCurses } from '../actions/index';
 import { Link } from 'react-router';
 
 class PostsShow extends Component {
@@ -28,7 +28,7 @@ class PostsShow extends Component {
 
     return (
       <div>
-        
+
         <Link to="/">Back To Index</Link>
         <button
           className="btn btn-danger pull-xs-right"

@@ -43,4 +43,4 @@ function mapStateToProps(state) {
   return { posts: state.posts.all };
 }
 
-export default connect(mapStateToProps, { fetchPosts ,fetchFirebase})(PostsIndex);
+export default connect (mapStateToProps, { fetchPosts ,fetchFirebase})(PostsIndex);

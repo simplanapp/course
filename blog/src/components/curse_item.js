@@ -18,7 +18,24 @@ class CourseItem  extends Component {
       //this.state=this;
     }
     renderCurses() {
-      return this.props.curses.all.map((curse) => {
+      var coursesList = this.props.curses.all;
+
+      coursesList.sort((a, b) => {
+        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+// names must be equal
+        return 0;
+
+        });
+        //console.log('tttttttttttttttttttttttttttttttttttttt',coursesList);
+      return coursesList.map((curse) => {
         var i;
         if(curse.website=='udemy'){
           i=1;
@@ -28,9 +45,10 @@ class CourseItem  extends Component {
         }else {
           i=2;
         }
-        console.log(curse);
+
+        console.log('ffffffffffffffffffffffffff', curse.name);
         return (
-          <div className="card--search">
+          <div className="card--search" key={curse.key}>
 
               <div className="card__inner">
                   <a className="card--left-col" ng-href={curse.courseUrl} ng-click="track('course-image')" href={curse.courseUrl}>

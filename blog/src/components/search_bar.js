@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
 import {reduxForm} from 'redux-form';
-import {searchCurses} from '../actions/index';
-import CurseItem from './curse_item'
+import {searchCurses,sortCurses} from '../actions/index';
+import CurseItem from './curse_item';
+import SortButton from './sort_button';
 // class SearchBar extends Component {
 //   constructor(props) {
 //     super(props);
@@ -34,7 +35,7 @@ onSubmit(props) {
   }
 
   render() {
-    //console.log(this.props);
+    //console.log('search_bar',this);
 
     const { fields: { title }, handleSubmit } = this.props;
     //  console.log(title);
@@ -43,11 +44,11 @@ onSubmit(props) {
 
 
         <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-
+                <a style={{display: 'inline'}}>
                 <input  type="text" className="form-control" {...title} style={{width:'50%', display:'inline', margin:2}}/>
                 <button type="submit" className="btn btn-primary" style={{marginLeft: 10, lineHeight:1}}>search</button>
-
-
+                <SortButton />
+              </a>
           <div className="text-help">
             {title.touched ? title.error : ''}
 
@@ -72,4 +73,4 @@ export default reduxForm({
   form: 'PostsNewForm',
   fields: ['title'],
 
-}, null, { searchCurses })(SearchCurses);
+}, null, { searchCurses, sortCurses})(SearchCurses);
