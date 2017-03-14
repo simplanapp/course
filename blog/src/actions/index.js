@@ -47,7 +47,7 @@ export function searchCurses(props) {
 export function sortCurses(props) {
    console.log('sssssseeeeeeeettttttttcccccoooooo' ,props);
   //  console.log("555555555555");
-  //  console.log(props);
+console.log(store.getState())
   return {
     type: SORT_CURSES,
     payload: props

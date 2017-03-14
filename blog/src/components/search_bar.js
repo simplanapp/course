@@ -35,7 +35,7 @@ onSubmit(props) {
   }
 
   render() {
-    //console.log('search_bar',this);
+    console.log('search_bar',this);
 
     const { fields: { title }, handleSubmit } = this.props;
     //  console.log(title);

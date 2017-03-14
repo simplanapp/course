@@ -6,24 +6,27 @@ import MenuItem from 'material-ui/MenuItem';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {sortCurses} from '../actions/index';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 class PopoverExampleSimple extends React.Component {
 
   constructor(props) {
 
     super(props);
-     this.handleSort = this.handleSort.bind(this);
+
     this.state = {
       open: false,
 
     };
-
+//this.sortCurses = this.sortCurses.bind(this);
+this.handleSort= this.handleSort.bind(this);
   }
   handleSort = (x) => {
     //console.log(x);
     this.setState({
       sortWord: x,
           });
-this.props.sortCurses(this)
+
+          this.props.sortCurses(x)
   }
   handleTouchTap = (event) => {
     // This prevents ghost click.
@@ -42,7 +45,7 @@ this.props.sortCurses(this)
   };
 
   render() {
-
+  //console.log(this);
     return (
         <MuiThemeProvider>
       <div style ={{display:'inline'}}>
@@ -77,5 +80,7 @@ this.props.sortCurses(this)
 function mapStateToProps(state) {
   return {sortWord: state.sortWord };
 }
+function mapDispatchToProps(dispatch) {
+   return bindActionCreators({ sortCurses }, dispatch);}
 //export default  connect(mapStateToProps, {sortCurses})(PopoverExampleSimple);
-export default connect(mapStateToProps, sortCurses)(PopoverExampleSimple)
+export default connect(mapStateToProps, mapDispatchToProps)(PopoverExampleSimple)
