@@ -5,6 +5,9 @@ import ActionFavoriteBorder from 'material-ui/svg-icons/action/favorite-border';
 import Visibility from 'material-ui/svg-icons/action/visibility';
 import VisibilityOff from 'material-ui/svg-icons/action/visibility-off';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CheckedIcon from 'material-ui/svg-icons/toggle/check-box';
+import {red500, grey50, blue500} from 'material-ui/styles/colors';
+
 
 const styles = {
   block: {
@@ -14,12 +17,16 @@ const styles = {
     marginBottom: 1,
     width: 100
   },
+  iconStyle: {
+      color: grey50,
+  },
 };
 
 const CheckboxExampleSimple = (field) => (
   <div style={styles.block}>
     <MuiThemeProvider>
       <Checkbox
+        iconStyle={styles.iconStyle}
         label={field}
         style={styles.checkbox}
         inputStyle={{margin: 0, padding:0}}

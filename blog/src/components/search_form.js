@@ -42,106 +42,88 @@ class SearchForm  extends Component {
       })
       }
 
-  render() {
-      //console.log('7777777777');
-    //  console.log(this.props.sub);
-const {sub} = this.props;
-  if (sub.all.length==0) {
-    return <div></div>;
-  }
+    render() {
+        console.log('7777777777');
+        console.log(this.props.sub);
+        const {sub} = this.props;
+        console.log(sub);
+        if (sub.all.length==0) {
+            return <div></div>;
+        }
 
-return (
-  <div>
-    <MuiThemeProvider>
+        return (
+            <div>
+                <MuiThemeProvider>
+                    <Paper zDepth={2} style={{ 'background-color': 'rgba(255, 255, 255, 0.85)'}}>
+                        <Divider style={{ 'background-color': '#7f7f7f'}}/>
+                        <Divider style={{ 'background-color': '#7f7f7f'}}/>
+                        <grid>
+                            <row>
+                                <h3 className='categories'>Related</h3>
+                                <row style={{ display: 'inline-block', marginLeft:100}}>
+                                    {this.renderCurses()}
+                                </row>
+                            </row>
+                            <Divider style={{ 'background-color': '#7f7f7f'}}/>
+                            <row>
+                                <h3 className='categories'>Course Level</h3>
+                            </row>
 
+                            <row style={{ display: 'inline-flex', marginLeft:100}}>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Beginer')}
+                                </a>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Intermediate')}
+                                </a>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Advanced')}
+                                </a>
+                            </row>
+                            <Divider style={{ 'background-color': '#7f7f7f'}}/>
+                            <row>
+                                <h3 className='categories'>Price</h3>
+                            </row>
+                            <row style={{ display: 'inline-flex', marginLeft:100}}>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Free')}
+                                </a>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Partial Free')}
+                                </a>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Paid')}
+                                </a>
+                            </row>
+                            <Divider style={{ 'background-color': '#7f7f7f'}}/>
+                            <row>
+                                <h3 className='categories'>Test Methods</h3>
+                            </row>
+                            <row style={{ display: 'inline-flex', marginLeft:100}}>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Quizzes')}
+                                </a>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('Coding exercises')}
+                                </a>
+                                <a className='checkBox'>
+                                {CheckboxExampleSimple('test')}
+                                </a>
+                            </row>
+                            <Divider style={{ 'background-color': '#7f7f7f'}}/>
+                        </grid>
+                        <TextField hintText="Email address" style={style} underlineShow={true} underlineStyle={{borderColor: '#000'}} underlineFocusStyle={{borderColor: '#000'}} />
+                        {/* <FlatButton label="Sumbit" primary={true} /> */}
+                        <Divider style={{ 'background-color': '#7f7f7f'}}/>
 
-    <Paper zDepth={2}>
-
-
-
-
-      <Divider />
-      <Divider />
-    <grid>
-      <row>
-        <h3 className='categories'>
-          Related
-        </h3>
-
-      <row style={{ display: 'inline-flex', marginLeft:100}}>
-        {this.renderCurses()}
-      </row>
-      </row>
-        <Divider />
-      <row>
-        <h3 className='categories'>
-          Course Level
-        </h3>
-      </row>
-
-      <row style={{ display: 'inline-flex', marginLeft:100}}>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Beginer')}
-        </a>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Intermediate')}
-        </a>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Advanced')}
-        </a>
-
-      </row>
-        <Divider />
-      <row>
-        <h3 className='categories'>
-          Price
-        </h3>
-      </row>
-
-      <row style={{ display: 'inline-flex', marginLeft:100}}>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Free')}
-        </a>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Partial Free')}
-        </a>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Paid')}
-        </a>
-
-      </row>
-        <Divider />
-      <row>
-        <h3 className='categories'>
-        Test Methods
-        </h3>
-      </row>
-
-
-      <row style={{ display: 'inline-flex', marginLeft:100}}>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Quizzes')}
-        </a>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('Coding exrcises')}
-        </a>
-        <a className='checkBox'>
-          {CheckboxExampleSimple('test')}
-        </a>
-
-      </row>
-    <Divider />
-  </grid>
-  <TextField hintText="Email address" style={style} underlineShow={false} />
-   {/* <FlatButton label="Sumbit" primary={true} /> */}
-   <DialogButton  />
-  </Paper>
-  </MuiThemeProvider>
-  </div>
+                        <DialogButton  />
+                    </Paper>
+                </MuiThemeProvider>
+            </div>
 
 
 
-)}
+            )}
 }
 
 function mapStateToProps({ sub }) {

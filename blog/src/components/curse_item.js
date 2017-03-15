@@ -95,17 +95,19 @@ class CourseItem  extends Component {
       }
 
   render() {
-    console.log('******',this);
-const { curses, sort } = this.props;
-  if (!curses) {
-    return <div>Loading...</div>;
-  }
-console.log('******',this);
-return (
-  <div>
-  {this.renderCurses()}
-  </div>
+        console.log('******',this);
+        const { curses, sort } = this.props;
+        if (!curses) {
+        return <div>Loading...</div>;
+        }
+        console.log('******',this);
+        return (
+            <div>
+            {this.renderCurses()}
+            </div>
 
+            )}
+    }
  /* <Card>
 ////    <View style={{flex: 1, flexDirection: 'row'}}>
 //
@@ -129,8 +131,6 @@ return (
 ////    </View>
 //  </Card> */
 
-)}
-}
 // function mapStateToProps(state) {
 //   return {curses: state.curses};
 // }

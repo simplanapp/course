@@ -3,7 +3,7 @@ import { FETCH_POSTS, FETCH_POST ,SEARCH_CURSES, SORT_CURSES  } from '../actions
 const INITIAL_STATE = { all: [], post: null, sortWord: null };
 
 export default function(state = INITIAL_STATE, action) {
-//console.log("action",action,state);
+console.log("action",action,state);
   switch(action.type) {
   case FETCH_POST:
     return { ...state, post: action.payload.data };
@@ -13,7 +13,7 @@ export default function(state = INITIAL_STATE, action) {
     return { ...state, all: action.payload.data };
   case SORT_CURSES:
     console.log("sssoooorrrttt",action.payload);
-    return { ...state, sortWord: action.payload };
+    return { ...state, all: action.payload.all , sortWord: action.payload.sortWord };
 
   default:
     return state;

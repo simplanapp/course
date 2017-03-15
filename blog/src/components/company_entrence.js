@@ -6,15 +6,20 @@ export default class Company extends Component {
   render() {
     console.log(this);
     return (
-      <div >
-
-
-
-          <SearchSUB  />
+        <div>
+            <div className="streamer">
+                <div className="container">
+                    <div className="streamer__content">
+                        <div className="streamer__headline">Be Able.</div>
+                        <div className="streamer__text">From programming to photography, take in-depth online courses and meet any challenge with skill.</div>
+                        <SearchSUB />
+                    </div>
+                </div>
+            </div>
             <SearchForm className='tabs'/>
 
-
-      </div>
-    );
+        </div>
+        );
   }
 }
+

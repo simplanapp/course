@@ -29,12 +29,13 @@ import SortButton from './sort_button';
 //
 // export default SearchBar;
 class SearchCurses extends Component{
-onSubmit(props) {
-    this.props.searchCurses(props)
+    onSubmit(props) {
+        this.props.searchCurses(props)
 
-  }
+    }
 
-  render() {
+
+    render() {
     console.log('search_bar',this);
 
     const { fields: { title }, handleSubmit } = this.props;
@@ -44,11 +45,11 @@ onSubmit(props) {
 
 
         <div className={`form-group ${title.touched && title.invalid ? 'has-danger' : ''}`}>
-                <a style={{display: 'inline'}}>
+            <a style={{display: 'inline'}}>
                 <input  type="text" className="form-control" {...title} style={{width:'50%', display:'inline', margin:2}}/>
                 <button type="submit" className="btn btn-primary" style={{marginLeft: 10, lineHeight:1}}>search</button>
                 <SortButton />
-              </a>
+            </a>
           <div className="text-help">
             {title.touched ? title.error : ''}
 

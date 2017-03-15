@@ -49,44 +49,15 @@ export function searchCurses(props) {
 export function sortCurses(curses) {
    console.log('sssssseeeeeeeettttttttcccccoooooo' ,curses);
    //console.log("555555555555");
-
-   curses.all.sort((a, b) => {
-     var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-     var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-     if (nameA < nameB) {
-       return -1;
-     }
-     if (nameA > nameB) {
-       return 1;
-     }
-
-// names must be equal
-     return 0;
-
-     });
-
-
-
-
-
+  var newCurses = sortCursesBySortWord(curses);
+  console.log('after sorting action' , newCurses);
   return {
     type: SORT_CURSES,
-    payload: curses
+    payload: newCurses
   };
 }
 
-// export function sortCurses(props) {
-//   console.log('get state:',getState());
-//   return (dispatch, getState) => {
-//
-//     const {items} = getState().otherReducer;
-//
-//     dispatch(anotherAction(items));
-//   }
-// }
-export function anotherAction(items) {
-  console.log(items);
-}
+
 export function searchCursesSub(props) {
    const request =axios.get(`${HEROKU_URL}/cursesSub`);
 console.log(request);
@@ -95,6 +66,125 @@ console.log(request);
     payload: request
   };
 }
+
+function sortCursesBySortWord(curses){
+    switch(curses.sortWord){
+
+        case 'score':
+            curses.all.sort((a, b) => {
+                     var x = a.score; // ignore upper and lowercase
+                     var y = b.score; // ignore upper and lowercase
+                     if (x < y) {
+                       return -1;
+                     }
+                     if (x > y) {
+                       return 1;
+                     }
+                     return 0;
+
+                     });
+            break;
+        case 'price_low_to_high':
+            curses.all.sort((a, b) => {
+                     var x = getPrice(a.price);
+                     var y = getPrice(b.price);
+                     if (x < y) {
+                       return -1;
+                     }
+                     if (x > y) {
+                       return 1;
+                     }
+                     return 0;
+
+                     });
+
+            break;
+        case 'price_high_to_low':
+            curses.all.sort((a, b) => {
+                         var x = getPrice(a.price);
+                         var y = getPrice(b.price);
+                         if (x < y) {
+                           return 1;
+                         }
+                         if (x > y) {
+                           return -1;
+                         }
+                         return 0;
+
+                         });
+
+            break;
+        case 'relevance':
+            curses.all.sort((a, b) => {
+                     var x = a.score; // ignore upper and lowercase
+                     var y = b.score; // ignore upper and lowercase
+                     if (x < y) {
+                       return -1;
+                     }
+                     if (x > y) {
+                       return 1;
+                     }
+                     return 0;
+
+                     });
+            break;
+        case 'review':
+            curses.all.sort((a, b) => {
+                     var x = a.ratingGrade; // ignore upper and lowercase
+                     var y = b.ratingGrade; // ignore upper and lowercase
+                     if (x < y) {
+                       return 1;
+                     }
+                     if (x > y) {
+                       return -1;
+                     }
+                     return 0;
+
+                     });
+
+            break;
+        default:
+            curses.all.sort((a, b) => {
+                     var x = a.score; // ignore upper and lowercase
+                     var y = b.score; // ignore upper and lowercase
+                     if (x < y) {
+                       return -1;
+                     }
+                     if (x > y) {
+                       return 1;
+                     }
+                     return 0;
+
+                     });
+    }
+    return curses;
+}
+
+function getPrice(priceString){
+    if(priceString === 'free'){
+        return 0;
+    }
+    return parseFloat(priceString.replace(/[^\d.-]/g,''));
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export function fetchPosts() {
   const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
 

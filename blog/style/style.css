@@ -1,6 +1,141 @@
 form a {
   margin-left: 5px;
 }
+
+.streamer-search__icon {
+    color: #fff;
+    left: 15px;
+    position: absolute;
+    top: 12px;
+}
+
+/*for company entrance*/
+
+@media (max-width: 1431px)
+.streamer {
+    background-size: 119%;
+    background-position: 0 0;
+}
+@media (min-width: 1200px)
+.streamer {
+    background-position: center 30%;
+}
+@media (min-width: 480px)
+.streamer {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-image: url(/staticx/udemy/js/webpack/homepage_hero_cropped.677b833549374af9a82a9b4b37a619cb.jpg);
+    height: 500px;
+    padding: 0;
+}
+.streamer, .streamer .quick-search-dropdown-v4 {
+    width: 100%;
+}
+.streamer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: flex-end;
+    align-items: flex-end;
+    /*background-color: #524336;
+    background-image: url(/staticx/udemy/js/webpack/homepage-hero-mobile.da44388aeb689955cab205e8b6c697a0.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;*/
+    height: 300px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+@media (max-width: 1431px)
+.streamer__content {
+    padding-left: 112px;
+}
+.streamer__content {
+    max-width: 460px;
+    box-sizing: content-box;
+}
+@media (min-width: 480px)
+.streamer__headline {
+    font-size: 40px;
+    line-height: 1.33;
+}
+.streamer__headline {
+    color: #fff;
+    /*font-size: 24px;*/
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.17;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+@media (min-width: 480px)
+.streamer__text {
+    font-size: 18px;
+    line-height: 1.61;
+}
+.streamer__text {
+    color: #fff;
+    /*font-size: 13px;*/
+    font-size: 18px;
+    line-height: 1.46;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,.5);
+}
+.streamer-search {
+    background-color: hsla(0,0%,100%,.25);
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    min-width: 1px;
+    position: relative;
+    width: 100%;
+}
+@media (min-width: 480px)
+.streamer-search__field {
+    height: 30px;
+}
+.streamer-search__field {
+    -webkit-appearance: none!important;
+    background-color: hsla(0,0%,100%,0);
+    border: none;
+    color: #fff;
+/*    height: 16px;*/
+    height: 30px;
+    width: 100%;
+    padding-left: 48px;
+        padding-top: 10px;
+        padding-right: 12px;
+        padding-bottom: 10px;
+        padding-left: 12px;
+}
+.search_icon {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+    display: block;
+}
+.search_button {
+    color: #fff !important;
+    background-color: transparent !important;
+    border-color: #fff !important;
+    border: 3px solid #fff !important;
+}
+
+
+
+
+
+
 .jumbotron,.jumbotron .h1,.jumbotron h1{color:inherit}.tags--carousel .tags__next-bt:focus,.tags--carousel .tags__prev-bt:focus,.tags__close:focus,.tags__close:hover{outline:0}.c_topic--image .c_topic__name,.card--search .card__subtitle{-webkit-line-clamp:2;-moz-line-clamp:2;-ms-line-clamp:2;-webkit-box-orient:vertical;-moz-box-orient:vertical;-o-box-orient:vertical}
 .jumbotron{padding-top:30px;padding-bottom:30px;margin-bottom:30px;background-color:#ccc}
 .jumbotron p{margin-bottom:15px;font-size:23px;font-weight:200}
@@ -12,6 +147,7 @@ form a {
 
 .checkBox {
     /*display: inline-flex!important;*/
+    display: inline-block!important;
     margin-right: 50px;
     /*margin: 20px;*/
     font-size: 12px;
@@ -21,8 +157,7 @@ form a {
 .categories {
   text-align: left;
   font-size: 15px;
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 1rem;
 }
 /*.page{
 background-image: url('https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fbooks-library-knowledge-tunnel-50548.jpeg?alt=media&token=08a1a1cf-07b7-450e-bbd4-cf70328a60d9');

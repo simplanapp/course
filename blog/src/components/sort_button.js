@@ -65,9 +65,9 @@ this.handleSort= this.handleSort.bind(this);
           onRequestClose={this.handleRequestClose}
         >
           <Menu>
-            <MenuItem primaryText="score" onClick={()=>{this.handleSort('score')}} />
-            <MenuItem primaryText="price" onClick={()=>{this.handleSort('price')}} />
             <MenuItem primaryText="relevance" onClick={()=>{this.handleSort('relevance')}} />
+            <MenuItem primaryText="price low to high" onClick={()=>{this.handleSort('price_low_to_high')}} />
+            <MenuItem primaryText="price high to low" onClick={()=>{this.handleSort('price_high_to_low')}} />
             <MenuItem primaryText="review" onClick={()=>{this.handleSort('review')}} />
           </Menu>
         </Popover>
