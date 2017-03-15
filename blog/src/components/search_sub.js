@@ -11,7 +11,7 @@ onSubmit(props) {
   }
 
   render() {
-    console.log(this.props);
+    //console.log(this.props);
 
     const { fields: { title }, handleSubmit } = this.props;
     //  console.log(title);

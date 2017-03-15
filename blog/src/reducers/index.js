@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   curses: CursesReducer,
   form: formReducer,
   sub: PostsReducer,
-  sortWord: CursesReducer,
+  // sortWord: CursesReducer,
 });
 
 export default rootReducer;

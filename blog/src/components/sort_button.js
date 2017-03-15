@@ -25,8 +25,8 @@ this.handleSort= this.handleSort.bind(this);
     this.setState({
       sortWord: x,
           });
-
-          this.props.sortCurses(x)
+          this.props.curses.sortWord=x;
+          this.props.sortCurses(this.props.curses)
   }
   handleTouchTap = (event) => {
     // This prevents ghost click.
@@ -45,7 +45,7 @@ this.handleSort= this.handleSort.bind(this);
   };
 
   render() {
-  //console.log(this);
+  console.log(this);
     return (
         <MuiThemeProvider>
       <div style ={{display:'inline'}}>
@@ -78,7 +78,7 @@ this.handleSort= this.handleSort.bind(this);
   }
 }
 function mapStateToProps(state) {
-  return {sortWord: state.sortWord };
+  return {curses: state.curses };
 }
 function mapDispatchToProps(dispatch) {
    return bindActionCreators({ sortCurses }, dispatch);}

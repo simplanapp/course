@@ -43,8 +43,8 @@ class SearchForm  extends Component {
       }
 
   render() {
-      console.log('7777777777');
-      console.log(this.props.sub);
+      //console.log('7777777777');
+    //  console.log(this.props.sub);
 const {sub} = this.props;
   if (sub.all.length==0) {
     return <div></div>;

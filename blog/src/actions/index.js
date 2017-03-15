@@ -1,5 +1,6 @@
 import axios from 'axios';
 import firebase from 'firebase';
+import { Provider } from 'react-redux';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const FETCH_POST = 'FETCH_POST';
@@ -11,6 +12,7 @@ export const SORT_CURSES = 'SORT_CURSES';
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 const HEROKU_URL='https://blooming-savannah-34852.herokuapp.com'
 const API_KEY = '?key=lkajdsfapipwietpw';
+
 // var config = {
 //     apiKey: "AIzaSyDHXX6SsbLgm9yjkIJXGRR3wpsdpnx_iJU",
 //     authDomain: "simplan-alpha.firebaseapp.com",
@@ -44,14 +46,46 @@ export function searchCurses(props) {
     payload: request
   };
 }
-export function sortCurses(props) {
-   console.log('sssssseeeeeeeettttttttcccccoooooo' ,props);
-  //  console.log("555555555555");
-console.log(store.getState())
+export function sortCurses(curses) {
+   console.log('sssssseeeeeeeettttttttcccccoooooo' ,curses);
+   //console.log("555555555555");
+
+   curses.all.sort((a, b) => {
+     var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+     var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+     if (nameA < nameB) {
+       return -1;
+     }
+     if (nameA > nameB) {
+       return 1;
+     }
+
+// names must be equal
+     return 0;
+
+     });
+
+
+
+
+
   return {
     type: SORT_CURSES,
-    payload: props
+    payload: curses
   };
+}
+
+// export function sortCurses(props) {
+//   console.log('get state:',getState());
+//   return (dispatch, getState) => {
+//
+//     const {items} = getState().otherReducer;
+//
+//     dispatch(anotherAction(items));
+//   }
+// }
+export function anotherAction(items) {
+  console.log(items);
 }
 export function searchCursesSub(props) {
    const request =axios.get(`${HEROKU_URL}/cursesSub`);

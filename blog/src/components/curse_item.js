@@ -18,22 +18,10 @@ class CourseItem  extends Component {
       //this.state=this;
     }
     renderCurses() {
+
       var coursesList = this.props.curses.all;
 
-      coursesList.sort((a, b) => {
-        var nameA = a.name.toUpperCase(); // ignore upper and lowercase
-        var nameB = b.name.toUpperCase(); // ignore upper and lowercase
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-
-// names must be equal
-        return 0;
-
-        });
+      
         //console.log('tttttttttttttttttttttttttttttttttttttt',coursesList);
       return coursesList.map((curse) => {
         var i;
@@ -46,7 +34,7 @@ class CourseItem  extends Component {
           i=2;
         }
 
-        console.log('ffffffffffffffffffffffffff', curse.name);
+      //  console.log('ffffffffffffffffffffffffff', curse.name);
         return (
           <div className="card--search" key={curse.key}>
 
@@ -107,12 +95,12 @@ class CourseItem  extends Component {
       }
 
   render() {
-    console.log(this);
-const { curses } = this.props;
+    console.log('******',this);
+const { curses, sort } = this.props;
   if (!curses) {
     return <div>Loading...</div>;
   }
-
+console.log('******',this);
 return (
   <div>
   {this.renderCurses()}
