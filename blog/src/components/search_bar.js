@@ -74,4 +74,4 @@ export default reduxForm({
   form: 'PostsNewForm',
   fields: ['title'],
 
-}, null, { searchCurses, sortCurses})(SearchCurses);
+}, null, { searchCurses})(SearchCurses);

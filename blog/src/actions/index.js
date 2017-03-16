@@ -40,7 +40,7 @@ var instance = axios.create({
 export function searchCurses(props) {
    const request =axios.get(`${HEROKU_URL}/curses?name=${props.title}`);
   //  console.log("555555555555");
-  //  console.log(props);
+  console.log("in actions",props);
   return {
     type: SEARCH_CURSES,
     payload: request

@@ -21,7 +21,7 @@ class CourseItem  extends Component {
 
       var coursesList = this.props.curses.all;
 
-      
+
         //console.log('tttttttttttttttttttttttttttttttttttttt',coursesList);
       return coursesList.map((curse) => {
         var i;
@@ -30,6 +30,8 @@ class CourseItem  extends Component {
         }
         else if (curse.website=='edx') {
           i=3;
+        }else if (curse.website=='coursera') {
+          i=0;
         }else {
           i=2;
         }

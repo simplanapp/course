@@ -17,7 +17,7 @@ class PopoverExampleSimple extends React.Component {
       open: false,
 
     };
-//this.sortCurses = this.sortCurses.bind(this);
+this.handleTouchTap= this.handleTouchTap.bind(this);
 this.handleSort= this.handleSort.bind(this);
   }
   handleSort = (x) => {
@@ -27,10 +27,11 @@ this.handleSort= this.handleSort.bind(this);
           });
           this.props.curses.sortWord=x;
           this.props.sortCurses(this.props.curses)
-  }
+      }
   handleTouchTap = (event) => {
+    // event.stopPropagation();
     // This prevents ghost click.
-    //event.preventDefault();
+    event.preventDefault();
     console.log("Tap Happens",event);
     this.setState({
       open: true,
@@ -56,7 +57,8 @@ this.handleSort= this.handleSort.bind(this);
            className="btn btn-primary" style={{marginLeft: 10, lineHeight:1}}
           label="sort"
         /> */}
-        <button type="submit" className="btn btn-primary" style={{marginLeft: 10, lineHeight:1, display: 'inlineBlock', minWidth:82}} onClick={this.handleTouchTap}> Sort     </button>
+        <button  className="btn btn-primary" style={{marginLeft: 10, lineHeight:1, display: 'inlineBlock', minWidth:82}} onClick ={(e) =>{
+                  this.handleTouchTap(e)}}> Sort     </button>
         <Popover
           open={this.state.open}
           anchorEl={this.state.anchorEl}
