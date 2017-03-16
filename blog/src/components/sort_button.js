@@ -12,24 +12,25 @@ class PopoverExampleSimple extends React.Component {
   constructor(props) {
 
     super(props);
+    console.log('visibility',props.visibility);
 
     this.state = {
+      visibility: props.visibility,
       open: false,
 
     };
-this.handleTouchTap= this.handleTouchTap.bind(this);
-this.handleSort= this.handleSort.bind(this);
+    //this.sortCurses = this.sortCurses.bind(this);
+    this.handleSort= this.handleSort.bind(this);
   }
   handleSort = (x) => {
     //console.log(x);
-    this.setState({
-      sortWord: x,
+          this.setState({
+            sortWord: x,
           });
           this.props.curses.sortWord=x;
           this.props.sortCurses(this.props.curses)
-      }
+  }
   handleTouchTap = (event) => {
-    // event.stopPropagation();
     // This prevents ghost click.
     event.preventDefault();
     console.log("Tap Happens",event);
@@ -46,10 +47,11 @@ this.handleSort= this.handleSort.bind(this);
   };
 
   render() {
-  console.log(this);
+  console.log('render sort button',this.props.visibility);
     return (
         <MuiThemeProvider>
-      <div style ={{display:'inline'}}>
+          <div style ={{display:'inline-block'}}>
+          {/* <div> */}
 
         {/* <RaisedButton
           onTouchTap={this.handleTouchTap}
@@ -57,8 +59,9 @@ this.handleSort= this.handleSort.bind(this);
            className="btn btn-primary" style={{marginLeft: 10, lineHeight:1}}
           label="sort"
         /> */}
-        <button  className="btn btn-primary" style={{marginLeft: 10, lineHeight:1, display: 'inlineBlock', minWidth:82}} onClick ={(e) =>{
-                  this.handleTouchTap(e)}}> Sort     </button>
+        <button type="submit" className="search_button btn btn-primary"
+          style={{marginLeft: 10, lineHeight:1.8, display: this.props.visibility}}
+          onClick={(e)=>{this.handleTouchTap(e)}}>sort</button>
         <Popover
           open={this.state.open}
           anchorEl={this.state.anchorEl}

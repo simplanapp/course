@@ -28,10 +28,9 @@ onSubmit(props) {
     //  console.log(title);
     return (
         <MuiThemeProvider>
+          {/* <div className="streamer-search"> */}
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-
-
-                <div className="streamer-search">
+              <div className="streamer-search">
                     <ActionSearchIcon className="search_icon" style={iconStyles} />
                     <input  type="text" className="streamer-search__field" placeholder="What do you want to learn?" {...title} />
                     <button type="submit" className="search_button btn btn-primary" style={{marginLeft: 10, lineHeight:1}}>search</button>
@@ -40,14 +39,15 @@ onSubmit(props) {
                 <div className="text-help">
                 {title.touched ? title.error : ''}
 
-                </div>
+              </div>
+            </div>
 
-                </div>
 
 
                 {/* <button type="submit" className="btn btn-primary">search</button> */}
 
             </form>
+          {/* </div> */}
         </MuiThemeProvider>
     );
 

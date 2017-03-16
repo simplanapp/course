@@ -6,14 +6,9 @@ export default class Clients extends Component {
   render() {
     //console.log(this);
     return (
-      <div >
-
-
-
-          <SearchCurses  />
-            <CurseItem className='tabs'/>
-
-
+      <div>
+        <SearchCurses  />
+        <CurseItem className='tabs'/>
       </div>
     );
   }
