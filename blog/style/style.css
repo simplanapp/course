@@ -178,6 +178,7 @@ html {
 }
 */
 body {
+  font-family: Helvetica, Arial, sans-serif !important;
   margin-top: 30px!important;
   background-color: rgba(0,0,0,0)!important;
 }

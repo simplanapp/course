@@ -11,12 +11,19 @@ import { fetchPosts, searchCurses } from '../actions/index';
 const icons=['https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fcoursera.jpg?alt=media&token=6d691d4b-71ee-4f09-97e0-93c7444f58b1',
 'https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fdownload.png?alt=media&token=58a9029d-6ea3-4e4c-a711-1f553a3bf7f7',
 'https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fudacity_logo.jpg?alt=media&token=ac41f5f1-8bbd-4996-8415-0d90f0f3d427',
-'https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fedx.png?alt=media&token=45c04e10-93f8-4028-ac19-ebf2f94d31a3']
+'https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fedx.png?alt=media&token=45c04e10-93f8-4028-ac19-ebf2f94d31a3',
+'https://firebasestorage.googleapis.com/v0/b/simplan-alpha.appspot.com/o/new%2Fflearn.png?alt=media&token=7bfff4c1-3e39-4973-8db3-9d1168a775e7']
 class CourseItem  extends Component {
   constructor(props){
       super(props);
       //this.state=this;
+      this.state={imgErrored: true};
     }
+    handleImageError = (event) => {
+      this.setState({imgErrored: true});
+    };
+
+
     renderCurses() {
 
       var coursesList = this.props.curses.all;
@@ -32,7 +39,11 @@ class CourseItem  extends Component {
           i=3;
         }else if (curse.website=='coursera') {
           i=0;
-        }else {
+        }
+        else if (curse.website=='fLearn') {
+        i=4;
+        }
+        else {
           i=2;
         }
 
@@ -42,7 +53,9 @@ class CourseItem  extends Component {
 
               <div className="card__inner">
                   <a className="card--left-col" ng-href={curse.courseUrl} ng-click="track('course-image')" href={curse.courseUrl}>
-                      <img className="card__image" ng-src={curse.photoUrl} src={curse.photoUrl}/>
+                      <img className="card__image" ng-src={curse.photoUrl}
+                        src={curse.photoUrl}
+                        onError={(e)=>{e.target.src=icons[i]}}/>
                   </a>
 
                   <div className="fx fx-dc">

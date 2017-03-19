@@ -73,8 +73,6 @@ class SearchCurses extends Component{
 
       <div className="streamer">
         <div className="container" style={{position: this.state.containerPosition , top:0}}>
-          {/* <div className="container"> */}
-
               <div className="streamer__content">
                   <div className="streamer__headline" style={{visibility: this.state.textVisibility}} >Be Able.</div>
                   <div className="streamer__text" style={{visibility: this.state.textVisibility}}>From programming to photography, take in-depth online courses and meet any challenge with skill.</div>
